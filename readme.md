@@ -1,23 +1,16 @@
 # About this template
 This template is more or less the same as the [email template](http://foundation.zurb.com/apps/app-templates/email/) found on zurbs offical website. All I'm doing is adding icons and some basic angular magic to make it more functional and less boilerplate. It's also good practices for learning how to work with Foundation for Apps.
 
-# Changes
+## Changes
 	* Added foundation-icons
 	* Working search bar 
 	* Repeated message in inbox
 
 
-* TODO
+## TODO
 	* Add more VIEWS for inbox, sent, favorite, and trash.
 
 
-
-http://foundation.zurb.com/apps/app-templates/email/
-
-
-# Foundation for Apps Template
-
-This is the default template project for Foundation for Apps. It's powered by Node, Gulp, Angular, and libsass. It provides you with a basic template to get started with Angular and Foundation for Apps. If you're already an Angular developer, you may instead want to install the components into your own stack using Bower: `bower install foundation-apps`
 
 ## Requirements
 
