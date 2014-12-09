@@ -1,6 +1,10 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+bower_components
+node_modules
+build
+.sass-cache
 
 # Folder config file
 Desktop.ini
@@ -26,7 +30,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
