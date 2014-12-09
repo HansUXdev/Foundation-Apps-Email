@@ -1,4 +1,4 @@
-# About this template
+## About this template
 This template is more or less the same as the [email template](http://foundation.zurb.com/apps/app-templates/email/) found on zurbs offical website. All I'm doing is adding icons and some basic angular magic to make it more functional and less boilerplate. It's also good practices for learning how to work with Foundation for Apps.
 
 ## Changes

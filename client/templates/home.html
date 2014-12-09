@@ -8,7 +8,13 @@ url: /
 		<section class="block-list with-icons">
 		  <ul>
 		    <li>
-		    	<img src="assets/fonts/zurb/svgs/fi-mail.svg" alt="">
+			    <!-- 
+			    	iconic icons requires this, however... 
+				    you CANNOT reference it through bower-components (like the documentation says...) because the server loads resources with a root of "build/" 
+				    which makes it outside the path (duh!)...
+			    -->
+		    	<!-- <img src="assets/fonts/zurb/svgs/fi-mail.svg" alt=""> -->
+		    	<img zf-iconic="" data-src="/iconic/envelope.svg" class="iconic-md">
 		      <a href="#">Inbox  <span class="alert badge" style="position: relative;">{{messages.length}} </span> </a>
 		    </li>
 		    <!-- With an icon -->
@@ -28,7 +34,8 @@ url: /
 		    </li>
 		  	<li class="hide-for-medium">
 		  		<!-- <img src="http://placehold.it/1x1" alt=""> -->
-		  		<img src="assets/img/iconic/circle-x.svg" alt="">
+		  		<!-- <img src="assets/img/iconic/circle-x.svg" alt=""> -->
+		  		<img zf-iconic="" data-src="/iconic/circle-x.svg" class="iconic-md">
 		      <a zf-close="sub-nav">Close</a>
 		    </li>
 		  </ul>
@@ -48,17 +55,14 @@ url: /
 		  {subject:'This is the sixth message', content:'This is a pretty long message, lets repeat it like good developers should.'},
 		  {subject:'This is the seventh message', content:'This is a pretty long message, lets repeat it like good developers should.'}
 		  ]">
-		  	<!-- <li>
-		  		<input type="text" placeholder="Search">
-		   	</l1> -->
 
 		   	<!-- Repeat 5 times and ADD search filter-->
 			  	<li>
-				  	<input type="search" ng-model="q" placeholder="filter messages..." />
+				  	<input type="search" ng-model="q" placeholder="Search messages..." />
 			  		<!-- <input type="text" placeholder="Search" ng-model="q" placeholder="filter messages..."> -->
 			   	</l1>
 				
-			<li ng-repeat="message in messages  | filter:q as results">
+			<li ng-repeat="message in messages | filter:q as results">
 				<a  zf-toggle="message"> <!-- zf-toggle="message" causes problems -->
 
 					<h5>{{message.subject}}</h5>

@@ -10,6 +10,12 @@
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/routes.js"></script>
     <script src="/assets/js/angular.js"></script>
+    <!-- iconic icons requires this, however... 
+      you CANNOT reference it through bower-components (like the documentation says...) 
+      because the server loads resources with a root of "build/" 
+      which makes it outside the path (duh!)...
+    -->
+    <script src="/js/vendor/iconic.min.js"></script>
   </head>
 
   <body>
