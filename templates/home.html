@@ -1,0 +1,118 @@
+
+	<div zf-panel position="left" id="sub-nav" class="fast bounceInOut medium- medium-grid-content">
+		<a class="button expand" zf-open="compose">Compose</a>
+		<section class="block-list with-icons">
+		  <ul>
+		    <li>
+			    <!-- 
+			    	iconic icons requires this, however... 
+				    you CANNOT reference it through bower-components (like the documentation says...) because the server loads resources with a root of "build/" 
+				    which makes it outside the path (duh!)...
+			    -->
+		    	<img src="stylesheets/zurb/svgs/fi-mail.svg" alt="">
+		    	<!-- <img zf-iconic="" data-src="/iconic/envelope.svg" class="iconic-md"> -->
+		      <a href="#">Inbox  <span class="alert badge" style="position: relative;">{{messages.length}} </span> </a>
+		    </li>
+		    <!-- With an icon -->
+		    <li>
+		      <img src="stylesheets/zurb/svgs/fi-arrow-right.svg" alt="">
+		      <a href="#">Sent Messages</a>
+		    </li>
+		    <li>
+		    	<!-- <img src="http://placehold.it/1x1" alt=""> -->
+		    	<img src="stylesheets/zurb/svgs/fi-heart.svg" alt="">
+		    	<a href="#">Favorited</a>
+		    </li>
+		    <li>
+		    	<!-- <img src="http://placehold.it/1x1" alt=""> -->
+		    	<img src="stylesheets/zurb/svgs/fi-trash.svg" alt="">
+		    	<a href="#">Trash</a>
+		    </li>
+		  	<li class="hide-for-medium">
+		  		<!-- <img src="http://placehold.it/1x1" alt=""> -->
+		  		<img src="images/iconic/circle-x.svg" alt="">
+		  		<!-- <img zf-iconic="" data-src="/iconic/circle-x.svg" class="iconic-md"> -->
+		      <a zf-close="sub-nav">Close</a>
+		    </li>
+		  </ul>
+		</section>
+	</div>
+
+	<div class="small-12 medium-3 messages grid-content">
+	  	<a class="button secondary expand hide-for-medium" zf-open="sub-nav">Menu</a>
+
+	  	<!-- Rework this templates to reference seperate json file -->
+	  	<section class="block-list" ng-init="messages = [
+		  {subject:'This is the first message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the second message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the third message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the fourth message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the fifth message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the sixth message', content:'This is a pretty long message, lets repeat it like good developers should.'},
+		  {subject:'This is the seventh message', content:'This is a pretty long message, lets repeat it like good developers should.'}
+		  ]">
+
+		   	<!-- Repeat 5 times and ADD search filter-->
+			  	<li>
+				  	<input type="search" ng-model="q" placeholder="Search messages..." />
+			  		<!-- <input type="text" placeholder="Search" ng-model="q" placeholder="filter messages..."> -->
+			   	</l1>
+				
+			<li ng-repeat="message in messages | filter:q as results">
+				<a  zf-toggle="message"> <!-- zf-toggle="message" causes problems -->
+
+					<h5>{{message.subject}}</h5>
+					<p>{{message.content}}</p>
+				</a>
+			</li>
+				
+			<li >
+				<a  zf-toggle="message"> <!-- zf-toggle="message" causes problems -->
+					<h5>Bad Dev, Bad !</h5>
+					<p>You did not repeat this message! You are fired!</p>
+				</a>
+			</li>
+
+		    <li class="animate-repeat" ng-if="results.length == 0">
+		      <strong>No results found...</strong>
+		    </li>
+
+
+		</section>
+	</div>
+
+	<div zf-panel id="message" position="right" class="fast bounceInOut small-12 medium-6 medium-grid-content">
+	  <a class="hide-for-medium button tiny" zf-close="message">Back</a>
+	  <h2>This is a message</h2>
+	  <p>Mike Meyers - 6/12/2014</p>
+	  <hr />
+	  <p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+		</p>
+		<p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+		</p>
+		<p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+		</p>
+		<p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu.
+		</p>
+	</div>
+
+	<!-- Start Compose Message -->
+		<zf-modal overlay="true" id="compose">
+			<div class="grid-block vertical">
+				<div class="primary title-bar">
+					<div class="center title">Compose Message</div>
+					<span class="left"><a zf-close="compose" href="#">Cancel</a></span>
+					<span class="right"><a href="#">Send</a></span>
+				</div>
+				<div class="grid-content">
+					<label>Email
+		        <input type="text" placeholder="email@zmail.com" />
+		      </label>
+					<label>Message
+		        <textarea placeholder="hello..."></textarea>
+		      </label>
+				</div>
+				</div>
+			</div>
+		</zf-modal>
+	<!-- End Compose Message -->
